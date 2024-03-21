@@ -21,5 +21,14 @@ CREATE TABLE IF NOT EXISTS dwh.customer_report_datamart (
 	count_order_not_done int8 NOT NULL,-- количество незавершённых заказов за месяц;
 	report_period VARCHAR NOT NULL,-- отчётный период, год и месяц.
   
-  CONSTRAINT customer_report_datamart_pk PRIMARY KEY (id)
+  	CONSTRAINT customer_report_datamart_pk PRIMARY KEY (id)
+);
+
+-- DDL с датой загрузки данных
+DROP TABLE IF EXISTS dwh.load_dates_customer_report_datamart;
+CREATE TABLE IF NOT EXISTS dwh.load_dates_customer_report_datamart (
+	id int8 GENERATED ALWAYS AS IDENTITY NOT NULL,
+    	load_dttm DATE NOT NULL,
+	
+	CONSTRAINT load_dates_customer_report_datamart_pk PRIMARY KEY (id)
 );
